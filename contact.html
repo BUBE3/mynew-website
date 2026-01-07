@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - DNOBLE OVENS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: url("{{ url_for('static', filename='images/contact-bg.jpg') }}") no-repeat center center/cover;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+    .overlay {
+      background: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 50px 0;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #f8c146;
+    }
+    .contact-info {
+      margin-top: 30px;
+      font-size: 1.1rem;
+    }
+    .contact-info p {
+      margin-bottom: 10px;
+    }
+    .form-box {
+      background: rgba(0,0,0,0.6);
+      border-radius: 10px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container text-center">
+      <h2>Contact Us</h2>
+      <p class="lead">We’d love to hear from you! Reach us on any of these platforms:</p>
+
+      <div class="contact-info">
+        <p>📞 WhatsApp: +234 812 345 6789</p>
+        <p>📘 Facebook: DNOBLE OVENS</p>
+        <p>▶️ YouTube: DNOBLE Ovens Channel</p>
+        <p>📍 Address: 123 Main Street, Lagos, Nigeria</p>
+      </div>
+
+      <!-- Button -->
+      <div class="text-center mt-4">
+        <button class="btn btn-warning btn-lg" data-bs-toggle="collapse" data-bs-target="#messageForm">
+          Send a Message
+        </button>
+      </div>
+
+      <!-- Collapsible Form -->
+      <div class="collapse mt-4" id="messageForm">
+        <form method="POST" action="{{ url_for('contact') }}" class="form-box text-start">
+          <div class="mb-3">
+            <label class="form-label">Your Name</label>
+            <input type="text" name="name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Your Email</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea name="message" class="form-control" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Send Message</button>
+        </form>
+      </div>
+
+      <div class="mt-5">
+        <a href="{{ url_for('home') }}" class="btn btn-outline-light">⬅ Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
